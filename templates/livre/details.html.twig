@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card shadow-lg border-0">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ livre.image }}" 
+                         class="img-fluid rounded-start h-100 object-fit-cover" 
+                         alt="{{ livre.titre }}" 
+                         onerror="this.src='https://via.placeholder.com/300x400?text=Image+non+disponible'">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body p-4">
+                        <h1 class="card-title mb-4">{{ livre.titre }}</h1>
+                        
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">ISBN</dt>
+                            <dd class="col-sm-9">{{ livre.isbn }}</dd>
+
+                            <dt class="col-sm-3">Catégorie</dt>
+                            <dd class="col-sm-9">{{ livre.categorie ? livre.categorie.libeller : 'Non catégorisé' }}</dd>
+
+                            <dt class="col-sm-3">Slug</dt>
+                            <dd class="col-sm-9">{{ livre.slug }}</dd>
+
+                            <dt class="col-sm-3">Résumé</dt>
+                            <dd class="col-sm-9">{{ livre.resume }}</dd>
+
+                            <dt class="col-sm-3">Éditeur</dt>
+                            <dd class="col-sm-9">{{ livre.editeur }}</dd>
+
+                            <dt class="col-sm-3">Date d'édition</dt>
+                            <dd class="col-sm-9">{{ livre.dateEdition|date('d/m/Y') }}</dd>
+
+                            <dt class="col-sm-3">Prix</dt>
+                            <dd class="col-sm-9">
+                                <span class="text-success fw-bold">
+                                    {{ livre.prix|number_format(2, ',', ' ') }} DT
+                                </span>
+                            </dd>
+                        </dl>
+
+                        <div class="d-flex gap-2">
+                            <a href="{{ path('app_livre_index') }}" 
+                               class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Retour à la liste
+                            </a>
+                            <a href="{{ path('app_livre_edit', {'id': livre.id}) }}" 
+                               class="btn btn-success">
+                                <i class="bi bi-pencil me-2"></i>Modifier
+                            </a>
+                            {{ include('livre/_delete_form.html.twig', {
+                                'button_label': '<i class="bi bi-trash me-2"></i>Supprimer',
+                                'button_class': 'btn btn-danger'
+                            })|raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

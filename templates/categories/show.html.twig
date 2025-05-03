@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card shadow-lg border-0">
+            <div class="row g-0">
+                <div class="col-md-12"> 
+                    <div class="card-body p-4">
+                        <h1 class="card-title mb-4">Categories</h1>
+                        
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">Id</dt>
+                            <dd class="col-sm-9">{{ category.id }}</dd>
+
+                            <dt class="col-sm-3">Libeller</dt>
+                            <dd class="col-sm-9">{{ category.libeller }}</dd>
+
+                            <dt class="col-sm-3">Slug</dt>
+                            <dd class="col-sm-9">{{ category.slag }}</dd>
+
+                            <dt class="col-sm-3">Description</dt>
+                            <dd class="col-sm-9">{{ category.description }}</dd>
+                        </dl>
+
+                        <div class="d-flex gap-2">
+                            <a href="{{ path('app_categories_index') }}" 
+                               class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>retour à la liste
+                            </a>
+                            <a href="{{ path('app_categories_edit', {'id': category.id}) }}" 
+                               class="btn btn-success">
+                                <i class="bi bi-pencil me-2"></i>Edit
+                            </a>
+                            {{ include('categories/_delete_form.html.twig', {
+                                'button_label': '<i class="bi bi-trash me-2"></i>Delete',
+                                'button_class': 'btn btn-danger'
+                            })|raw }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

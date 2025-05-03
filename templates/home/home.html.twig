@@ -1,0 +1,128 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}SymBook - Step Into a Magical Story
+{% endblock %}
+
+{% block body %}
+	<!-- Hero Section -->
+	<div class="hero-section text-center py-5">
+		<div class="container">
+			<h1 class="display-3">Welcome to SymBook</h1>
+			<p class="lead">Step into a world where stories come alive. Discover magical tales and rare treasures.</p>
+		</div>
+	</div>
+
+	<!-- Best-Selling Books Section -->
+	<section id="best-sellers" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-4">Historical Best-Selling Books</h2>
+			<div
+				class="row justify-content-center">
+				<!-- Book 1: "To Kill a Mockingbird" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/To_Kill_a_Mockingbird_%28first_edition_cover%29.jpg" class="card-img-top" alt="To Kill a Mockingbird">
+						<div class="card-body">
+							<h5 class="card-title">To Kill a Mockingbird</h5>
+							<p class="card-text">Author: Harper Lee</p>
+							<p class="card-text">Sold: Over 40 million copies</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+				<!-- Book 2: "Harry Potter and the Philosopher's Stone" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://upload.wikimedia.org/wikipedia/en/6/6b/Harry_Potter_and_the_Philosopher%27s_Stone_Book_Cover.jpg" class="card-img-top" alt="Harry Potter">
+						<div class="card-body">
+							<h5 class="card-title">Harry Potter and the Philosopher's Stone</h5>
+							<p class="card-text">Author: J.K. Rowling</p>
+							<p class="card-text">Sold: Over 120 million copies</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+				<!-- Book 3: "The Da Vinci Code" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://2.bp.blogspot.com/-ojEQzwZfFj0/Tbts0EYZuGI/AAAAAAAAABM/uBMUdvqRARY/s1600/Da++Vinci+Code001+Front.jpg" class="card-img-top" alt="The Da Vinci Code">
+						<div class="card-body">
+							<h5 class="card-title">The Da Vinci Code</h5>
+							<p class="card-text">Author: Dan Brown</p>
+							<p class="card-text">Sold: Over 80 million copies</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Rare Books Section -->
+	<section id="rare-books" class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-4">Rare Books Collection</h2>
+			<div
+				class="row justify-content-center">
+				<!-- Rare Book 1: "Gutenberg Bible" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://www.themorgan.org/sites/default/files/facsimile/download/gutenberg-000-0-000-0.jpg" class="card-img-top" alt="Gutenberg Bible">
+						<div class="card-body">
+							<h5 class="card-title">Gutenberg Bible</h5>
+							<p class="card-text">Year: 1455</p>
+							<p class="card-text">One of the first major books printed using mass-produced movable metal type in Europe.</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+				<!-- Rare Book 2: "First Folio by Shakespeare" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://img.ridicdn.net/cover/111004044/xxlarge#1" class="card-img-top" alt="First Folio">
+						<div class="card-body">
+							<h5 class="card-title">First Folio</h5>
+							<p class="card-text">Author: William Shakespeare</p>
+							<p class="card-text">Year: 1623</p>
+							<p class="card-text">A collection of Shakespeare's plays, considered one of the most influential books ever published.</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+				<!-- Rare Book 3: "Birds of America" -->
+				<div class="col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+					<div class="card book-card">
+						<img src="https://d.gr-assets.com/books/1172260545l/155842.jpg" class="card-img-top" alt="Birds of America">
+						<div class="card-body">
+							<h5 class="card-title">Birds of America</h5>
+							<p class="card-text">Author: John James Audubon</p>
+							<p class="card-text">Year: 1827-1838</p>
+							<p class="card-text">Known for its detailed illustrations of birds, a rare and valuable collector's item.</p>
+							<a href="#" class="btn btn-outline-primary">View Details</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Call to Action Section -->
+	<section class="py-5 text-center">
+		<div class="container">
+			<h2>Ready to Begin Your Reading Adventure?</h2>
+			<p>Click the magical button below to
+				<span class="special-text">unlock the gates to a world of stories</span>!</p>
+			<a href="{{ path('app_login') }}" class="btn btn-magical mt-3">
+				<img src="https://img.icons8.com/ios-filled/30/FFD700/key.png" alt="Key Icon">
+				Enter the Library
+			</a>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="text-center py-4">
+		<p>Â©
+			{{ 'now'|date('Y') }}
+			SymBook. All rights reserved.</p>
+	</footer>
+{% endblock %}

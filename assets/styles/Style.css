@@ -1,0 +1,416 @@
+
+/* Majestic Violet Theme */:root
+{
+    --primary-violet: #6b48ff;
+    --dark-violet: #3b2a7b;
+    --light-violet: #a48fff;
+    --accent-gold: #FFD700;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(45deg, var(--dark-violet), #2a1c5a, var(--primary-violet), #4a2b8a);
+    background-size: 400%;
+    animation: gradientBackground 15s ease infinite;
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* Moving Background Animation */
+@keyframes gradientBackground {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* Floating Book Animation */
+.floating-book {
+    position: absolute;
+    opacity: 0.6;
+    animation: float 10s ease-in-out infinite;
+    z-index: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-50px) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+}
+
+/* Navbar Styling */
+.navbar {
+    background: rgba(59, 42, 123, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand,
+.nav-link {
+    color: var(--accent-gold) !important;
+    font-family: 'Cinzel', serif;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--light-violet) !important;
+}
+
+/* General Section Styling */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p,
+.card-text,
+.form-label,
+.form-check-label {
+    color: #e0e0e0;
+}
+
+/* Book Card Styling */
+.book-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--light-violet);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--light-violet);
+}
+
+.book-card img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Button Styling */
+.btn-magical {
+    background: var(--primary-violet);
+    border: 2px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--light-violet);
+}
+
+.btn-magical:hover {
+    background: var(--accent-gold);
+    color: var(--dark-violet);
+    box-shadow: 0 0 20px var(--accent-gold);
+    transform: scale(1.1);
+}
+
+/* Special Text Styling */
+.special-text {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    text-shadow: 0 0 10px var(--light-violet);
+    transition: all 0.3s ease;
+}
+
+.special-text:hover {
+    color: var(--light-violet);
+    text-shadow: 0 0 20px var(--accent-gold);
+}
+
+/* Form Styling */
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: var(--light-violet);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 5px var(--light-violet);
+}
+
+/* Footer Styling */
+footer {
+    background: var(--dark-violet);
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+		/* Majestic Violet Theme */:root
+		{
+			--primary-violet: #6b48ff;
+			--dark-violet: #3b2a7b;
+			--light-violet: #a48fff;
+			--accent-gold: #FFD700;
+		}
+
+		body {
+			font-family: 'Playfair Display', serif;
+			background: linear-gradient(45deg, var(--dark-violet), #2a1c5a, var(--primary-violet), #4a2b8a);
+			background-size: 400%;
+			animation: gradientBackground 15s ease infinite;
+			color: #fff;
+			overflow-x: hidden;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Moving Background Animation */
+		@keyframes gradientBackground {
+			0% {
+				background-position: 0 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0 50%;
+			}
+		}
+
+		/* Floating Book Animation */
+		.floating-book {
+			position: absolute;
+			opacity: 0.6;
+			animation: float 10s ease-in-out infinite;
+			z-index: 0;
+		}
+
+		@keyframes float {
+			0% {
+				transform: translateY(0) rotate(0deg);
+			}
+			50% {
+				transform: translateY(-50px) rotate(5deg);
+			}
+			100% {
+				transform: translateY(0) rotate(0deg);
+			}
+		}
+
+		/* Navbar Styling */
+		.navbar {
+			background: rgba(59, 42, 123, 0.9);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.navbar-brand,
+		.nav-link {
+			color: var(--accent-gold) !important;
+			font-family: 'Cinzel', serif;
+		}
+
+		.nav-link:hover {
+			color: var(--light-violet) !important;
+		}
+
+		/* General Section Styling */
+		.container {
+			position: relative;
+			z-index: 1;
+		}
+
+		h1,
+		h2,
+		h3 {
+			font-family: 'Cinzel', serif;
+			color: var(--accent-gold);
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		}
+
+		p,
+		.card-text {
+			color: #e0e0e0;
+		}
+
+		/* Book Card Styling */
+		.book-card {
+			background: rgba(255, 255, 255, 0.1);
+			border: 1px solid var(--light-violet);
+			border-radius: 10px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			width: 250px; /* Fixed width for uniformity */
+			margin: 0 auto; /* Center the card within the column */
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for pop-out */
+		}
+
+		.book-card:hover {
+			transform: translateY(-10px) scale(1.05); /* Pop-out effect */
+			box-shadow: 0 8px 20px var(--light-violet); /* Enhanced shadow on hover */
+		}
+
+		.book-card img {
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			height: 300px; /* Fixed height for uniformity */
+			width: 100%; /* Ensure the image scales to fit the card width */
+			object-fit: cover; /* Maintain aspect ratio, crop if needed */
+		}
+
+		.card-body {
+			padding: 15px;
+		}
+
+		.card-title {
+			font-family: 'Cinzel', serif;
+			font-size: 1.2rem; /* Readable title size */
+			color: var(--accent-gold);
+			margin-bottom: 10px;
+		}
+
+		.card-text {
+			font-size: 0.9rem; /* Readable text size */
+			margin-bottom: 8px;
+		}
+
+		.btn-outline-primary {
+			color: var(--light-violet);
+			border-color: var(--light-violet);
+			font-size: 0.9rem;
+		}
+
+		.btn-outline-primary:hover {
+			background: var(--light-violet);
+			color: var(--dark-violet);
+		}
+
+		/* Button Styling */
+		.btn-magical {
+			background: var(--primary-violet);
+			border: 2px solid var(--accent-gold);
+			color: var(--accent-gold);
+			font-family: 'Cinzel', serif;
+			font-size: 1.5rem;
+			padding: 15px 30px;
+			border-radius: 25px;
+			transition: all 0.3s ease;
+			box-shadow: 0 0 10px var(--light-violet);
+		}
+
+		.btn-magical:hover {
+			background: var(--accent-gold);
+			color: var(--dark-violet);
+			box-shadow: 0 0 20px var(--accent-gold);
+			transform: scale(1.1);
+		}
+
+		/* Special Text Styling */
+		.special-text {
+			font-family: 'Cinzel', serif;
+			color: var(--accent-gold);
+			text-shadow: 0 0 10px var(--light-violet);
+			transition: all 0.3s ease;
+		}
+
+		.special-text:hover {
+			color: var(--light-violet);
+			text-shadow: 0 0 20px var(--accent-gold);
+		}
+
+		/* Footer Styling */
+		footer {
+			background: var(--dark-violet);
+			padding: 20px 0;
+			position: relative;
+			z-index: 1;
+		}
+		/* Majestic Violet Theme */:root
+		{
+			--primary-violet: #6b48ff;
+			--dark-violet: #3b2a7b;
+			--light-violet: #a48fff;
+			--accent-gold: #FFD700;
+		}
+
+		body {
+			font-family: 'Playfair Display', serif;
+			background: linear-gradient(45deg, var(--dark-violet), #2a1c5a, var(--primary-violet), #4a2b8a);
+			background-size: 400%;
+			animation: gradientBackground 15s ease infinite;
+			color: #fff;
+			overflow-x: hidden;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Moving Background Animation */
+		@keyframes gradientBackground {
+			0% {
+				background-position: 0 50%;
+			}
+			50% {
+				background-position: 100% 50%;
+			}
+			100% {
+				background-position: 0 50%;
+			}
+		}
+
+		/* Floating Book Animation */
+		.floating-book {
+			position: absolute;
+			opacity: 0.6;
+			animation: float 10s ease-in-out infinite;
+			z-index: 0;
+		}
+
+		@keyframes float {
+			0% {
+				transform: translateY(0) rotate(0deg);
+			}
+			50% {
+				transform: translateY(-50px) rotate(5deg);
+			}
+			100% {
+				transform: translateY(0) rotate(0deg);
+			}
+		}
+
+		/* Navbar Styling */
+		.navbar {
+			background: rgba(59, 42, 123, 0.9);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+		}
+
+		.navbar-brand,
+		.nav-link {
+			color: var(--accent-gold) !important;
+			font-family: 'Cinzel', serif;
+		}
+
+		.nav-link:hover {
+			color: var(--light-violet) !important;
+		}
+
+		/* General Section Styling */
+		.container {
+			position: relative;
+			z-index: 1;
+		}
+	
+	

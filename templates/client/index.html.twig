@@ -1,0 +1,63 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Client Dashboard - BookHaven{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Welcome</h1>
+        <p>Explore our collection of books below.</p>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        
+        {% if livres|length > 0 %}
+            <div class="row">
+                {% for livre in livres %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            
+                                <img src="{{livre.image }}" class="card-img-top" alt="{{ livre.titre }}" style="height: 200px; object-fit: cover;">
+                            
+                            <div class="card-body">
+                                <h5 class="card-title">{{ livre.titre }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">by {{ livre.editeur }}</h6>
+                                <p class="card-text">{{ livre.resume|length > 100 ? livre.resume|slice(0, 100) ~ '...' : livre.resume }}</p>
+                                <p class="card-text"><strong>Price:</strong> {{ livre.prix|number_format(2) }}DT</p>
+                                <p class="card-text"><strong>Published:</strong> {{ livre.dateEdition|date('Y-m-d') }}</p>
+                                {% if livre.categorie %}
+                                    <p class="card-text"><strong>Category:</strong> {{ livre.categorie.libeller }}</p>
+                                {% endif %}
+                                <a href="{{ path('app_show_client', {'id': livre.id}) }}" class="btn btn-primary">voir Details</a>
+                                <form method="post" action="{{ path('app_client', {'id': livre.id}) }}" style="display:inline;">
+                                <input type="hidden" name="livreID" value="{{ livre.id }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token('add_to_cart' ~ livre.id) }}">
+                                <button type="submit" name="ajouter_panier" class="btn btn-success">Ajouter au Panier</button>
+                            </form>
+                           
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {# Pagination Links #}
+            <div class="navigation mt-4 d-flex justify-content-center">
+                
+                {{ knp_pagination_render(livres) }}
+            </div>
+        {% else %}
+            <p class="text-muted">No books available at the moment.</p>
+        {% endif %}
+        
+        
+    </div>
+{% endblock %}

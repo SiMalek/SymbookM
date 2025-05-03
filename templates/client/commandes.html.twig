@@ -1,0 +1,51 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Mes Commandes - BookHaven
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<h1>Mes Commandes</h1>
+
+		{% if commandes is empty %}
+			<p>Vous n'avez aucune commande.</p>
+		{% else %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Numéro de commande</th>
+						<th>Date</th>
+						<th>Quantité totale</th>
+						<th>Total</th>
+						<th>Statut</th>
+						<th>Articles</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for commande in commandes %}
+						<tr>
+							<td>{{ commande.numeroCommande }}</td>
+							<td>{{ commande.dateCommande|date('d/m/Y H:i') }}</td>
+							<td>{{ commande.quantiteTotal }}</td>
+							<td>{{ commande.total|number_format(2) }}
+								DT</td>
+							<td>{{ commande.statut }}</td>
+							<td>
+								<ul>
+									{% for item in commande.items %}
+										<li>Livre ID:
+											{{ item.livre_id }}
+											(Quantité:
+											{{ item.quantite }})</li>
+									{% endfor %}
+								</ul>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+
+		<a href="{{ path('app_client') }}" class="btn btn-secondary">Retour à la boutique</a>
+	</div>
+{% endblock %}

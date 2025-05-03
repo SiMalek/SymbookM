@@ -1,0 +1,82 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Panier - BookHaven
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<h1>Votre Panier</h1>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+
+		{% if livres is empty %}
+			<p>Votre panier est vide.</p>
+		{% else %}
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Titre</th>
+						<th>Prix Unitaire</th>
+						<th>Quantité</th>
+						<th>Sous-total</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in livres %}
+						<tr>
+							<td>{{ item.livre.titre }}</td>
+							<td>{{ item.livre.prix|number_format(2) }}
+								DT</td>
+							<td>
+								<form method="post" action="{{ path('app_client_panier') }}" class="d-inline">
+									<input type="hidden" name="livreId" value="{{ item.livre.id }}">
+									<input type="hidden" name="action" value="update">
+									<input type="number" name="quantite" value="{{ item.quantite }}" min="1" max="{{ item.livre.stock }}" class="form-control d-inline-block w-auto">
+									<input type="hidden" name="_token" value="{{ csrf_token('panier_action' ~ item.livre.id) }}">
+									<button type="submit" class="btn btn-sm btn-primary">Mettre à jour</button>
+								</form>
+							</td>
+							<td>{{ item.total|number_format(2) }}
+								DT</td>
+							<td>
+								<form method="post" action="{{ path('app_client_panier') }}" class="d-inline">
+									<input type="hidden" name="livreId" value="{{ item.livre.id }}">
+									<input type="hidden" name="action" value="remove">
+									<input type="hidden" name="_token" value="{{ csrf_token('panier_action' ~ item.livre.id) }}">
+									<button type="submit" class="btn btn-sm btn-danger">Supprimer</button>
+								</form>
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="3">
+							<strong>Total</strong>
+						</td>
+						<td>
+							<strong>{{ total|number_format(2) }}
+								DT</strong>
+						</td>
+						<td></td>
+					</tr>
+				</tfoot>
+			</table>
+			<a href="{{ path('app_client_checkout') }}" class="btn btn-success">Passer la commande</a>
+		{% endif %}
+
+		<a href="{{ path('app_client') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+	</div>
+{% endblock %}

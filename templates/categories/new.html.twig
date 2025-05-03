@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Categories{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-4">
+                <h1 class="card-title mb-4">Ajouter une nouvelle categorie</h1>
+
+                {{ include('categories/_form.html.twig', {'button_label': 'ajouter'}) }}
+            </div>
+        </div>
+
+        <div class="mt-3 ms-3">
+            <a href="{{ path('app_categories_index') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>retour à la liste
+            </a>
+        </div>
+    </div>
+{% endblock %}

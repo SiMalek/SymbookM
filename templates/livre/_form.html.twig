@@ -1,0 +1,48 @@
+{{ form_start(form, {'attr': {'class': 'container mt-4'}}) }}
+    <div class="mb-3">
+        {{ form_label(form.titre, 'Title', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.isbn, 'ISBN', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.isbn, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.slug, 'Slug', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.slug, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.image, 'Image URL', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.resume, 'Summary', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.resume, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.editeur, 'Publisher', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.editeur, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.dateEdition, 'Edition Date', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.dateEdition, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.prix, 'Price', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.categorie, 'Category', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.categorie, {'attr': {'class': 'form-select'}}) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

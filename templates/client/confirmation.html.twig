@@ -1,0 +1,31 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Confirmation de commande - BookHaven{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Commande Confirmée</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+
+        <p>Votre commande n°{{ commande.numeroCommande }} a été passée avec succès.</p>
+        <ul>
+            {% for item in commande.items %}
+                <li>Livre ID: {{ item.livre_id }} - Quantité: {{ item.quantite }}</li>
+            {% endfor %}
+            <li><strong>Quantité totale :</strong> {{ commande.quantiteTotal }}</li>
+            <li><strong>Total :</strong> {{ commande.total }} DT</li>
+            <li><strong>Adresse :</strong> {{ commande.adresse }}</li>
+            <li><strong>Méthode de paiement :</strong> {{ commande.methodePaiement }}</li>
+            <li><strong>Statut :</strong> {{ commande.statut }}</li>
+        </ul>
+
+        <a href="{{ path('app_client_commandes') }}" class="btn btn-primary">Voir commandes</a>
+        <a href="{{ path('app_client') }}" class="btn btn-secondary">Retour à la boutique</a>
+    </div>
+{% endblock %}

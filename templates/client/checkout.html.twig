@@ -1,0 +1,39 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Passer la commande - BookHaven
+{% endblock %}
+
+{% block body %}
+	<div class="container my-5">
+		<h1>Passer la commande</h1>
+
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('error') %}
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				{{ message }}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+		{% endfor %}
+
+		{{ form_start(form) }}
+		<div class="mb-3">
+			{{ form_label(form.adresse) }}
+			{{ form_widget(form.adresse) }}
+			{{ form_errors(form.adresse) }}
+		</div>
+		<div class="mb-3">
+			{{ form_label(form.methodePaiement) }}
+			{{ form_widget(form.methodePaiement) }}
+			{{ form_errors(form.methodePaiement) }}
+		</div>
+		<button type="submit" class="btn btn-success">Confirmer la commande</button>
+		{{ form_end(form) }}
+
+		<a href="{{ path('app_client_panier') }}" class="btn btn-secondary mt-3">Retour au panier</a>
+	</div>
+{% endblock %}

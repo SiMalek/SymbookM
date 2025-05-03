@@ -1,0 +1,73 @@
+{% extends 'base3.html.twig' %}
+
+{% block title %}Détails du Livre - BookHaven{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <div class="card shadow-lg border-0">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{ livre.image }}" 
+                         class="img-fluid rounded-start h-100 object-fit-cover" 
+                         alt="{{ livre.titre }}" 
+                         onerror="this.src='https://via.placeholder.com/300x400?text=Image+non+disponible'">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body p-4">
+                        <h1 class="card-title mb-4">{{ livre.titre }}</h1>
+
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                        {% for message in app.flashes('error') %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                        {% for message in app.flashes('warning') %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+
+                        <dl class="row mb-4">
+                            <dt class="col-sm-3">Catégorie</dt>
+                            <dd class="col-sm-9">{{ livre.categorie ? livre.categorie.libeller : 'Non catégorisé' }}</dd>
+                            <dt class="col-sm-3">Résumé</dt>
+                            <dd class="col-sm-9">{{ livre.resume }}</dd>
+                            <dt class="col-sm-3">Éditeur</dt>
+                            <dd class="col-sm-9">{{ livre.editeur }}</dd>
+                            <dt class="col-sm-3">Date d'édition</dt>
+                            <dd class="col-sm-9">{{ livre.dateEdition|date('d/m/Y') }}</dd>
+                            <dt class="col-sm-3">Prix</dt>
+                            <dd class="col-sm-9">
+                                <span class="text-success fw-bold">
+                                    {{ livre.prix|number_format(2, ',', ' ') }} DT
+                                </span>
+                            </dd>
+                        </dl>
+
+                        <div class="d-flex gap-2">
+                            <a href="{{ path('app_client') }}" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-2"></i>Retour à la liste
+                            </a>
+                            <form method="post" action="{{ path('app_show_client', {'id': livre.id}) }}" style="display:inline;">
+                                <input type="hidden" name="livreID" value="{{ livre.id }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token('add_to_cart' ~ livre.id) }}">
+                                <button type="submit" name="ajouter_panier" class="btn btn-success">Ajouter au Panier</button>
+                            </form>
+                            <a href="{{ path('app_client_panier') }}" class="btn btn-secondary">
+                                Voir Panier
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

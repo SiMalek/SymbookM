@@ -1,0 +1,28 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Signup - BookHaven{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Signup</h1>
+        {{ form_start(registrationForm) }}
+            <div class="mb-3">
+                {{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.email) }}
+            </div>
+            <div class="mb-3">
+                {{ form_label(registrationForm.plainPassword, 'Password', {'label_attr': {'class': 'form-label'}}) }}
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(registrationForm.plainPassword) }}
+            </div>
+            <div class="mb-3 form-check">
+                {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'form-check-input'}}) }}
+                {{ form_label(registrationForm.agreeTerms, ' Agree to terms', {'label_attr': {'class': 'form-check-label'}}) }}
+                {{ form_errors(registrationForm.agreeTerms) }}
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        {{ form_end(registrationForm) }}
+        <p class="mt-3">Already have an account? <a href="{{ path('app_login') }}">Login here</a>.</p>
+    </div>
+{% endblock %}
